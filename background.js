@@ -19,6 +19,7 @@ raisins_checkbox.attr("data-store_location", "Baking Supplies");
 raisins_checkbox.attr("value", "(15 ounce) package raisins");
 
 raisins.children("label").children("span").children("span").text("½ cup raisins ");
+raisins.attr("data-id", "5219");
 
 
 instructions = $('.instructions-section');
