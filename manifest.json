@@ -1,0 +1,12 @@
+{ 
+    "name": "Add raisins",
+    "version": "1", 
+    "manifest_version": 3,
+    "description": "better food 4 a better u",
+    "content_scripts": [ 
+        { 
+            "js": [ "jquery-3.6.0.min.js", "background.js" ],
+             "matches": [ "http://www.allrecipes.com/recipe/*", "https://www.allrecipes.com/recipe/*"]
+         }
+     ] 
+} 
