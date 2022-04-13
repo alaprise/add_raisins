@@ -5,8 +5,12 @@
     "description": "better food 4 a better u",
     "content_scripts": [ 
         { 
-            "js": [ "jquery-3.6.0.min.js", "background.js" ],
-             "matches": [ "http://www.allrecipes.com/recipe/*", "https://www.allrecipes.com/recipe/*"]
-         }
+            "matches": [ "http://www.allrecipes.com/recipe/*", "https://www.allrecipes.com/recipe/*"],
+            "js": [ "jquery-3.6.0.min.js", "allrecipes.js" ] 
+        },
+        { 
+            "matches": [ "http://www.foodnetwork.com/recipes/*", "https://www.foodnetwork.com/recipes/*"],
+            "js": [ "jquery-3.6.0.min.js", "foodnetwork.js" ] 
+        }
      ] 
 } 
