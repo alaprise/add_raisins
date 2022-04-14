@@ -15,6 +15,10 @@
         { 
             "matches": [ "http://altonbrown.com/recipes/*", "https://altonbrown.com/recipes/*"],
             "js": [ "jquery-3.6.0.min.js", "altonbrown.js" ] 
+        },
+        { 
+            "matches": [ "http://www.gordonramsay.com/gr/recipes/*", "https://www.gordonramsay.com/gr/recipes/*"],
+            "js": [ "jquery-3.6.0.min.js", "gordonramsay.js" ] 
         }
      ] 
 } 
