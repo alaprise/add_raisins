@@ -11,6 +11,10 @@
         { 
             "matches": [ "http://www.foodnetwork.com/recipes/*", "https://www.foodnetwork.com/recipes/*"],
             "js": [ "jquery-3.6.0.min.js", "foodnetwork.js" ] 
+        },
+        { 
+            "matches": [ "http://altonbrown.com/recipes/*", "https://altonbrown.com/recipes/*"],
+            "js": [ "jquery-3.6.0.min.js", "altonbrown.js" ] 
         }
      ] 
 } 
