@@ -6,19 +6,19 @@
     "content_scripts": [ 
         { 
             "matches": [ "http://www.allrecipes.com/recipe/*", "https://www.allrecipes.com/recipe/*"],
-            "js": [ "jquery-3.6.0.min.js", "allrecipes.js" ] 
+            "js": [ "jquery-3.6.0.min.js", "seedrandom.js", "allrecipes.js" ] 
         },
         { 
             "matches": [ "http://www.foodnetwork.com/recipes/*", "https://www.foodnetwork.com/recipes/*"],
-            "js": [ "jquery-3.6.0.min.js", "foodnetwork.js" ] 
+            "js": [ "jquery-3.6.0.min.js", "seedrandom.js", "foodnetwork.js" ] 
         },
         { 
             "matches": [ "http://altonbrown.com/recipes/*", "https://altonbrown.com/recipes/*"],
-            "js": [ "jquery-3.6.0.min.js", "altonbrown.js" ] 
+            "js": [ "jquery-3.6.0.min.js", "seedrandom.js", "altonbrown.js" ] 
         },
         { 
             "matches": [ "http://www.gordonramsay.com/gr/recipes/*", "https://www.gordonramsay.com/gr/recipes/*"],
-            "js": [ "jquery-3.6.0.min.js", "gordonramsay.js" ] 
+            "js": [ "jquery-3.6.0.min.js", "seedrandom.js", "gordonramsay.js" ] 
         }
      ] 
 } 
