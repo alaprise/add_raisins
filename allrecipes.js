@@ -10,14 +10,12 @@ Math.seedrandom(seed);
 
 // 10% chance of happening, *should* be consistent on refresh?
 if (Math.random() < 0.1) {
+	// Ingredients
 	ingredients = $('.ingredients-section');
-	ingredients.append($('.ingredients-item').last().clone());
-	raisins = ingredients.children().last();
+	nIngredients = ingredients.children('.ingredients-item').length;
 
-	raisins_id = raisins.children("label").children("input").attr("id");
-	raisins_id = raisins_id.slice(0, -1) + (parseInt(raisins_id.slice(-1)) + 1);
-	raisins.children("label").children("input").attr("id", raisins_id);
-	raisins.children("label").attr("for", raisins_id);
+	raisins = ingredients.children('.ingredients-item').last().clone();
+
 
 	raisins_checkbox = raisins.children("label").children("input");
 	raisins_checkbox.attr("data-quantity", "½");
@@ -31,28 +29,39 @@ if (Math.random() < 0.1) {
 	raisins.children("label").children("span").children("span").text("½ cup raisins ");
 	raisins.attr("data-id", "5219");
 
+	// Get random index for ingredient
+	ingredient_number = Math.floor(Math.random()*nIngredients);
+	// Stick it in there
+	ingredients.children('.ingredients-item').eq(ingredient_number).after(raisins);
 
+	// Snag the id from an ingredient so we can replicate it for our new ingredient
+	ingredient_id_template = ingredients.children().first().children("label").children("input").attr("id").slice(0, -1);
+
+	// AllRecipes uses ids with indices to control the check boxes and update the shopping list
+	// Iterate through all ingredients now that the raisins are added and change those indices so that they increment down the list
+	ingredients.children().each(function(i, e) {
+		$(e).children("label").children("input").attr("id", `${ingredient_id_template}${i}`);
+		$(e).children("label").attr("for", `${ingredient_id_template}${i}`);
+	});
+
+	// Instructions
 	instructions = $('.instructions-section');
 	nSteps = instructions.children().length;
 
-	add_raisins = $('.instructions-section-item').last();
+	add_raisins = $('.instructions-section-item').last().clone();
 
-	copy = add_raisins.clone();
+	// Random index for adding raisins
+	raisins_step = Math.floor(Math.random()*nSteps);
 
-	copy_id = copy.children("label").children("input").attr("id");
-	copy_id = copy_id.slice(0, -1) + (parseInt(copy_id.slice(-1)) + 1);
+	add_raisins.children("div").children("div").children("p").text("Add raisins.");
 
-	copy.children("label").children("input").attr("id", copy_id);
-	copy.children("label").attr("for", copy_id);
+	instructions.children().eq(raisins_step).after(add_raisins);
 
-	number_regex = /\d+/;
-	copy_text = copy.children("label").children("span").children("span").text();
-	copy_text_step = parseInt(copy_text.match(number_regex)) + 1;
-	copy_text = copy_text.replace(number_regex, copy_text_step);
-	copy.children("label").children("span").children("span").text(copy_text);
-
-	instructions.append(copy);
-
-	add_raisins.children("div").children("div").children("p").text("Add raisins.")
+	// Same as above – update the indicies of the ids
+	instructions.children().each(function(i, e) {
+		$(e).children("label").children("span").children("span").text(`Step ${i+1}`); 
+		$(e).children("label").attr("for", `recipe-instructions-label-0-${i}`);
+		$(e).children("label").children("input").attr("id", `recipe-instructions-label-0-${i}`);
+	});
 
 }
