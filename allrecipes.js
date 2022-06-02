@@ -1,10 +1,8 @@
 // lol what a disaster
 
 // Start by seeding the RNG
-recipe_id_regex = /\/recipe\/(\d+)/;
-
 // I wonder if this works consistently. Probably not. ¯\_(ツ)_/¯
-seed = $(location).attr('pathname').match(recipe_id_regex)[1];
+seed = $(location).attr('pathname');
 
 Math.seedrandom(seed);
 
